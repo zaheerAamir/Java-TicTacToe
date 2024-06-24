@@ -8,6 +8,8 @@ import java.util.Scanner;
  */
 public class Main {
 
+  private static String[][] matrix = new String[3][3];
+
   public static void main(String[] args) {
 
     if (true) {
@@ -28,22 +30,20 @@ public class Main {
   }
 
   static void pattern() {
-
-    char[][] matrix = new char[3][3];
-
+    System.out.println("-------------");
     for (int row = 0; row < matrix.length; row++) {
 
-      System.out.println("-------------");
       // for every row, run the col:
       for (int col = 0; col < matrix[row].length; col++) {
 
-        System.out.print("|" + row + "," + col);
+        matrix[row][col] = row + "," + col;
+        System.out.print("|" + matrix[row][col]);
       }
       System.out.println("|");
 
     }
-
     System.out.println("-------------");
+
   }
 
   static void logic() {
@@ -56,7 +56,7 @@ public class Main {
     System.out.println("Enter the coordinated where you want to put X in the format (row col): ");
     int r = reader.nextInt();
     int c = reader.nextInt();
-    System.out.println("You chose: " + r + ", " + c);
+    matrix[r][c] = "X";
     pattern();
 
     reader.close();
