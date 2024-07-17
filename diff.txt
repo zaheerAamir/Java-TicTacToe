@@ -1,0 +1,3 @@
+Spring: used to create enterprise appication and large appication, needs a lot of configuration, not easy for developers to do these configuration so a bit difficult.
+Spring Boot: similar to spirng but less configuration and easy to spin up to create small prjects.
+Spring MVC: Used to create web api in model-view-controller architecture. 
