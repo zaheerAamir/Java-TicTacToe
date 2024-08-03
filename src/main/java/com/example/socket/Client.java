@@ -48,6 +48,7 @@ public class Client {
       // String to read input message
       String line = "";
 
+      System.out.println("Enter User Name: ");
       while (!line.equals("Over")) {
         try {
           line = input.readLine();

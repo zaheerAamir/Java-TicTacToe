@@ -14,7 +14,7 @@ public class Server implements Runnable {
   private static ArrayList<Socket> sockets = new ArrayList<Socket>();
   private int threadNo = 0;
   // Maximum number of threads in thread pool
-  static final int MAX_T = 3;
+  static final int MAX_T = 4;
   private static HashMap<Integer, String> users = new HashMap<>();
 
   public Server(int threadNo) {
@@ -42,6 +42,14 @@ public class Server implements Runnable {
           synchronized (sockets) {
             for (Socket s : sockets) {
               try {
+                /*
+                 * will take message from each socket (s) and will write to all the other sockets
+                 * client. then client will read the writeUTF sent from server and print it to
+                 * System.out so that each client can see other connected client message.this will
+                 * be done for each thread. synchronized because all the threads will access this
+                 * block of code to broadcast message so to make each thread use this block of one
+                 * thread at a time.
+                 */
                 ps = new DataOutputStream(s.getOutputStream());
                 ps.writeUTF(users.get(socket.getPort()) + " " + socket.getPort() + " " + line);
                 ps.flush();
