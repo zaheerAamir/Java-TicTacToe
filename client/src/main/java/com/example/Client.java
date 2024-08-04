@@ -1,4 +1,4 @@
-package com.example.socket;
+package com.example;
 
 import java.io.*;
 import java.net.*;

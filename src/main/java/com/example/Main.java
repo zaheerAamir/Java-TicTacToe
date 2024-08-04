@@ -33,7 +33,7 @@ public class Main {
 
   }
 
-  static void logic() {
+  public static String[][] logic() {
     System.out.println("-------------");
     // assume matrix = [[1,2], [2,3], [3,4]]
     for (int row = 0; row < matrix.length; row++) {
@@ -53,9 +53,10 @@ public class Main {
 
     }
     System.out.println("-------------");
+    return matrix;
   }
 
-  static boolean checkWonOrDraw(String choise) {
+  public static boolean checkWonOrDraw(String choise) {
     // Horizontal:
     if (matrix[0][0].equals(choise) && matrix[0][1].equals(choise) && matrix[0][2].equals(choise)) {
       System.out.println("Game Ended " + choise + " Won!");
@@ -102,7 +103,7 @@ public class Main {
     return false;
   }
 
-  static void pattern() {
+  public static void pattern() {
     Scanner reader = new Scanner(System.in);
 
     System.out.println("Enter the coordinates where you want to put X in the format (row col): ");

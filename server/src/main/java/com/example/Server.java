@@ -1,4 +1,6 @@
-package com.example.socket;
+package com.example;
+
+import com.google.gson.Gson;
 
 import java.net.*;
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ public class Server implements Runnable {
 
   }
 
-  public void ClientServerComm(Socket socket) {
+  public void clientServerComm(Socket socket) {
 
     try {
       System.out.println(socket);
@@ -89,7 +91,7 @@ public class Server implements Runnable {
   @Override
   public void run() {
 
-    ClientServerComm(sockets.get(this.threadNo));
+    clientServerComm(sockets.get(this.threadNo));
 
   }
 

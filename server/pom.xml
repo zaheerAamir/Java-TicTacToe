@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
-  <artifactId>JavaBasic</artifactId>
+  <artifactId>server</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>JavaBasic</name>
+  <name>server</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -31,27 +31,4 @@
 
 
   </dependencies>
-
-  
-  <build>
-    <plugins>
-      <!-- Other plugins -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version> <!-- Use the latest version -->
-        <configuration>
-         <source>8</source> <!-- Set source compatibility level to Java 8 -->
-          <target>8</target> <!-- Set target compatibility level to Java 8 -->
-          <annotationProcessorPaths>
-            <path>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>1.18.20</version> <!-- Use the same version as your dependency -->
-            </path>
-          </annotationProcessorPaths>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
