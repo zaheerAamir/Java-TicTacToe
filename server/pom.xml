@@ -31,4 +31,39 @@
 
 
   </dependencies>
+
+<build>
+    <plugins>
+      <!-- Other plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version> <!-- Use the latest version -->
+        <configuration>
+         <source>8</source> <!-- Set source compatibility level to Java 8 -->
+          <target>8</target> <!-- Set target compatibility level to Java 8 -->
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>1.18.20</version> <!-- Use the same version as your dependency -->
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+
+      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.0</version>
+            <configuration>
+                <archive>
+                    <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                </archive>
+            </configuration>
+        </plugin>
+    </plugins>
+
+
+  </build>
 </project>

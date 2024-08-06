@@ -6,9 +6,9 @@ import java.net.*;
 public class Client {
 
   // initialize socket and input output streams
-  private Socket socket = null;
-  private BufferedReader input = null;
-  private DataOutputStream out = null;
+  private Socket socket;
+  private BufferedReader input;
+  private DataOutputStream out;
 
   public Client(String address, int port) {
 
@@ -20,6 +20,17 @@ public class Client {
 
       out = new DataOutputStream(socket.getOutputStream());
 
+      if (out == null) {
+        System.out.println("Output stream is not initialized");
+      } else {
+        System.out.println("Output initialized successfully!");
+      }
+
+      if (input == null) {
+        System.out.println("Input stream is not initialized");
+      } else {
+        System.out.println("Input initialized successfully!");
+      }
 
 
       // Start a new thread to listen for messages from the server
@@ -49,16 +60,32 @@ public class Client {
       String line = "";
 
       System.out.println("Enter User Name: ");
-      while (!line.equals("Over")) {
+      while (true) {
         try {
+
           line = input.readLine();
-          out.writeUTF(line);
 
-        } catch (IOException i) {
-          System.err.println(i);
+          if (line == null) {
+            System.err.println("Input is null, ending loop!");
+            break;
+          }
+          if (!line.equals("Over")) {
+            if (out != null) {
+              out.writeUTF(line);
+              out.flush();
+            } else {
+              System.err.println("Output stream is null!");
+            }
+
+          } else {
+            break;
+          }
+
+        } catch (IOException e) {
+          System.err.println("Error sending message: " + e.getMessage());
         }
-
       }
+
 
       // Cleanup after "Over" is sent
       try {
@@ -81,7 +108,7 @@ public class Client {
   }
 
   public static void main(String[] args) {
-    Client client = new Client("127.0.0.1", 5000);
+    Client client = new Client("server-container", 5000);
 
   }
 

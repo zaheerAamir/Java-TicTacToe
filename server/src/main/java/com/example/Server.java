@@ -11,8 +11,8 @@ import java.io.*;
 
 public class Server implements Runnable {
 
-  private static Socket socket = null;
-  private static ServerSocket server = null;
+  private static Socket socket;
+  private static ServerSocket server;
   private static ArrayList<Socket> sockets = new ArrayList<Socket>();
   private int threadNo = 0;
   // Maximum number of threads in thread pool
